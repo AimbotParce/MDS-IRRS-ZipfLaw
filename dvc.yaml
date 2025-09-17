@@ -1,0 +1,9 @@
+stages:
+  preprocess:
+    cmd: python3 -m zipf_law.scripts.preprocess data/raw/don_quixote.txt 
+      data/processed/don_quixote.txt
+    deps:
+    - .\data\raw\don_quixote.txt
+    - .\zipf_law\scripts\preprocess.py
+    outs:
+    - .\data\processed\don_quixote.txt
