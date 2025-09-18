@@ -29,9 +29,8 @@ for lang, books in books_by_language.items():
         print(f"Downloading Language: {lang}, Book ID: {pub_id}, Title: {pub_title}")
         url = f"https://www.gutenberg.org/ebooks/{pub_id}.txt.utf-8"
         output_file = os.path.join(output_dir, f"{pub_id}.txt")
-        urllib.request.urlretrieve(url, output_file)
-        # Save metadata
-        with open(os.path.join(output_dir, f"{pub_id}_metadata.txt"), "w", encoding="utf-8") as metafile:
-            metafile.write(f"Title: {pub_title}\n")
-            metafile.write(f"Language: {lang}\n")
-            metafile.write(f"Subjects: {pub_subject}\n")
+        try:
+            urllib.request.urlretrieve(url, output_file)
+        except Exception as e:
+            print(f"Failed to download {url}: {e}")
+            continue

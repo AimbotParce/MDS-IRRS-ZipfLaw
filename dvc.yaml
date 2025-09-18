@@ -7,3 +7,11 @@ stages:
     - config.ini
     outs:
     - .\data\raw\books\
+  Preprocess Books:
+    cmd: python3 -m zipf_law.scripts.preprocess data/raw/books 
+      data/processed/books
+    deps:
+    - .\data\raw\books\
+    - .\zipf_law\scripts\preprocess.py
+    outs:
+    - .\data\processed\books\

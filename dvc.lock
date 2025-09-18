@@ -1,0 +1,41 @@
+schema: '2.0'
+stages:
+  Download Books:
+    cmd: py -m zipf_law.scripts.download
+    deps:
+    - path: .\data\raw\pg_catalog.csv
+      hash: md5
+      md5: 3781e4bfb2812fdcb8e257c5216e0558
+      size: 20637799
+    - path: .\zipf_law\scripts\download.py
+      hash: md5
+      md5: ffa989a3d81d76b39d9081090dc0c6a6
+      size: 1880
+    - path: config.ini
+      hash: md5
+      md5: 562bc944e35425cba07ebb04a404a11d
+      size: 33
+    outs:
+    - path: .\data\raw\books\
+      hash: md5
+      md5: c864fc07d9bee7c335e50166f1f1d150.dir
+      size: 96295144
+      nfiles: 638
+  Preprocess Books:
+    cmd: py -m zipf_law.scripts.preprocess data/raw/books data/processed/books
+    deps:
+    - path: .\data\raw\books\
+      hash: md5
+      md5: c864fc07d9bee7c335e50166f1f1d150.dir
+      size: 96295144
+      nfiles: 638
+    - path: .\zipf_law\scripts\preprocess.py
+      hash: md5
+      md5: 9af8bbb041789c4db8f54411dd960e41
+      size: 2261
+    outs:
+    - path: .\data\processed\books\
+      hash: md5
+      md5: 2814b602982f0e21cdcd2522d9b5e000.dir
+      size: 75559401
+      nfiles: 638
