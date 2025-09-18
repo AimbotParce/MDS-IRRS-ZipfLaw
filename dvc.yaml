@@ -1,0 +1,9 @@
+stages:
+  Download Books:
+    cmd: python3 -m zipf_law.scripts.download
+    deps:
+    - .\data\raw\pg_catalog.csv
+    - .\zipf_law\scripts\download.py
+    - config.ini
+    outs:
+    - .\data\raw\books\
