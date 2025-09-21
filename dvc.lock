@@ -49,3 +49,22 @@ stages:
       md5: d2780b4098a3f6cd3cc940c674087875.dir
       size: 177565871
       nfiles: 319
+  Preprocess Books:
+    cmd: python -m zipf_law.scripts.preprocess ./data/raw/books/ 
+      ./data/processed/books/
+    deps:
+    - path: .\data\raw\books\
+      hash: md5
+      md5: d2780b4098a3f6cd3cc940c674087875.dir
+      size: 177565871
+      nfiles: 319
+    - path: .\zipf_law\scripts\preprocess.py
+      hash: md5
+      md5: 9af8bbb041789c4db8f54411dd960e41
+      size: 2261
+    outs:
+    - path: .\data\processed\books\
+      hash: md5
+      md5: 05b1ff0af48005ed088ffeef024db0b1.dir
+      size: 129317304
+      nfiles: 319
