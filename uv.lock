@@ -1970,6 +1970,7 @@ dependencies = [
     { name = "nltk" },
     { name = "scikit-learn" },
     { name = "seaborn" },
+    { name = "tqdm" },
 ]
 
 [package.metadata]
@@ -1979,4 +1980,5 @@ requires-dist = [
     { name = "nltk", specifier = ">=3.9.1" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "tqdm", specifier = ">=4.67.1" },
 ]

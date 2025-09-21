@@ -1,16 +1,16 @@
 stages:
   Download Catalog:
-    cmd: python3 -m zipf_law.scripts.download_catalog
+    cmd: python -m zipf_law.scripts.download_catalog
     deps:
     - .\zipf_law\scripts\download_catalog.py
     - config.ini
     outs:
     - .\data\raw\catalog.tar.bz2
-  Uncompress Catalog:
-    cmd: python3 -m zipf_law.scripts.uncompress_catalog
+  Process Catalog:
+    cmd: python -m zipf_law.scripts.process_catalog
     deps:
     - .\data\raw\catalog.tar.bz2
-    - .\zipf_law\scripts\uncompress_catalog.py
+    - .\zipf_law\scripts\process_catalog.py
     - config.ini
     outs:
-    - .\data\raw\catalog\
+    - .\data\processed\catalog.csv
