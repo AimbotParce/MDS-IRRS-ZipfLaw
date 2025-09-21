@@ -1,17 +1,16 @@
 stages:
-  Download Books:
-    cmd: python3 -m zipf_law.scripts.download
+  Download Catalog:
+    cmd: python3 -m zipf_law.scripts.download_catalog
     deps:
-    - .\data\raw\pg_catalog.csv
-    - .\zipf_law\scripts\download.py
+    - .\zipf_law\scripts\download_catalog.py
     - config.ini
     outs:
-    - .\data\raw\books\
-  Preprocess Books:
-    cmd: python3 -m zipf_law.scripts.preprocess data/raw/books 
-      data/processed/books
+    - .\data\raw\catalog.tar.bz2
+  Uncompress Catalog:
+    cmd: python3 -m zipf_law.scripts.uncompress_catalog
     deps:
-    - .\data\raw\books\
-    - .\zipf_law\scripts\preprocess.py
+    - .\data\raw\catalog.tar.bz2
+    - .\zipf_law\scripts\uncompress_catalog.py
+    - config.ini
     outs:
-    - .\data\processed\books\
+    - .\data\raw\catalog\
