@@ -1,4 +1,3 @@
-import configparser
 import csv
 import os
 import sys
@@ -8,9 +7,6 @@ from time import strftime
 import xml.etree.ElementTree as ET
 
 from tqdm import tqdm
-
-config = configparser.ConfigParser()
-config.read("config.ini")
 
 DOWNLOAD_PATH = "data/raw/catalog.tar.bz2"
 OUT_FILE = "data/processed/catalog.csv"

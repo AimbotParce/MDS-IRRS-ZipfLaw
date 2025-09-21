@@ -7,7 +7,7 @@ import urllib.request
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-URL = config.get("Download", "CatalogURL")
+URL = "https://gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2"
 TEMP_DIR = "data/raw/"
 DOWNLOAD_PATH = os.path.join(TEMP_DIR, "catalog.tar.bz2")
 

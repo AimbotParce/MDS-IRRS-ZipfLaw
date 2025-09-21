@@ -3,7 +3,6 @@ stages:
     cmd: python -m zipf_law.scripts.download_catalog
     deps:
     - .\zipf_law\scripts\download_catalog.py
-    - config.ini
     outs:
     - .\data\raw\catalog.tar.bz2
   Process Catalog:
@@ -11,6 +10,13 @@ stages:
     deps:
     - .\data\raw\catalog.tar.bz2
     - .\zipf_law\scripts\process_catalog.py
-    - config.ini
     outs:
     - .\data\processed\catalog.csv
+  Download Dataset:
+    cmd: python -m zipf_law.scripts.download_books
+    deps:
+    - .\data\processed\catalog.csv
+    - .\zipf_law\scripts\download_books.py
+    - config.ini
+    outs:
+    - .\data\raw\books\

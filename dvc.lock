@@ -5,12 +5,8 @@ stages:
     deps:
     - path: .\zipf_law\scripts\download_catalog.py
       hash: md5
-      md5: eb3c02a3f17e10b819db6447a7b35bc1
-      size: 843
-    - path: config.ini
-      hash: md5
-      md5: 4890940607a2ad82ea3f4e02704372dc
-      size: 104
+      md5: 860ae4536ce275a33de66cf07f620aa1
+      size: 865
     outs:
     - path: .\data\raw\catalog.tar.bz2
       hash: md5
@@ -25,14 +21,31 @@ stages:
       size: 124392557
     - path: .\zipf_law\scripts\process_catalog.py
       hash: md5
-      md5: 5b14f0d119022f4c7d43d86e6a879d33
-      size: 6986
-    - path: config.ini
-      hash: md5
-      md5: 4890940607a2ad82ea3f4e02704372dc
-      size: 104
+      md5: 77b1369d37447892b6258d9c0c8602d8
+      size: 6898
     outs:
     - path: .\data\processed\catalog.csv
       hash: md5
       md5: 82ecddb04d72a72ce9dcc59dfc8534ed
       size: 16301312
+  Download Dataset:
+    cmd: python -m zipf_law.scripts.download_books
+    deps:
+    - path: .\data\processed\catalog.csv
+      hash: md5
+      md5: 82ecddb04d72a72ce9dcc59dfc8534ed
+      size: 16301312
+    - path: .\zipf_law\scripts\download_books.py
+      hash: md5
+      md5: 167246b5c8c84b749592206d8d23ac6f
+      size: 1922
+    - path: config.ini
+      hash: md5
+      md5: 82ee855ea3c83414bff2c1a75bfa16af
+      size: 53
+    outs:
+    - path: .\data\raw\books\
+      hash: md5
+      md5: d2780b4098a3f6cd3cc940c674087875.dir
+      size: 177565871
+      nfiles: 319
